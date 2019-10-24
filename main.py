@@ -11,10 +11,10 @@ def validar():
 	if(entrada.get()==""):
 	   engine.say("La entrada esta Vacía")
 	   engine.runAndWait()
-	   print("Vacia")
+	   print("Vacía")
 	else:
 
-	    automata = Automata(ventana, lienzo)
+	    automata = Automata(entrada.get(),ventana, lienzo)
 	    engine.say("su palabra fue" + entrada.get())
 	    engine.runAndWait()
 	    if(automata.estado != "rechazado"):
