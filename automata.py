@@ -9,6 +9,9 @@ engine.setProperty('rate', 100)
 class Automata:
 
     def __init__(self, palabra, ventana, lienzo):
+        if(len(palabra)==0):
+            print("vacio")
+        
         if(len(palabra) % 2 == 0):
             self.estado = "rechazado"
             engine.say("El automata solo acepta palabras impares")

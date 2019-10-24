@@ -8,11 +8,17 @@ engine.setProperty('rate', 100)     # setting up new voice rate
 
 
 def validar():
-    automata = Automata(entrada.get(), ventana, lienzo)
-    engine.say("su palabra fue" + entrada.get())
-    engine.runAndWait()
-    if(automata.estado != "rechazado"):
-      automata.validar(esfera, flecha, flecha3, flecha4, borde, esfera2, esfera3, flecha2, apuntador)
+	if(entrada.get()==""):
+	   engine.say("La entrada esta Vacía")
+	   engine.runAndWait()
+	   print("Vacia")
+	else:
+
+	    automata = Automata(ventana, lienzo)
+	    engine.say("su palabra fue" + entrada.get())
+	    engine.runAndWait()
+	    if(automata.estado != "rechazado"):
+	      automata.validar(esfera, flecha, flecha3, flecha4, borde, esfera2, esfera3, flecha2, apuntador)
 
 def borrar():
     lienzo.delete("all")
