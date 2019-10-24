@@ -2,6 +2,7 @@ import time
 from tkinter import *
 from objeto import *
 from clases import *
+from tkinter import messagebox
 import pyttsx3
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')       #getting details of current voice
@@ -14,7 +15,7 @@ class Automata:
         
         if(len(palabra) % 2 == 0):
             self.estado = "rechazado"
-            engine.say("El automata solo acepta palabras impares")
+            engine.say("El autómata solo acepta palabras impares")
             engine.runAndWait()
             print("solo palabras impares ")
         else:
@@ -94,6 +95,7 @@ class Automata:
                                 engine.say("la palabra ha sido rechazada")
                                 engine.runAndWait()
                                 self.estado="rechazado"
+                                messagebox.showinfo("Rechazada","¡Su palabra ha sido rechazada")
                                 print("rechazado")
                     else:
                         print("esta palabra no es valida")
@@ -109,4 +111,5 @@ class Automata:
             self.lienzo.create_text(150,300,fill="darkblue",font="Times 20 italic bold",text="palabra aceptada")
             engine.say("la palabra ha sido aceptada")
             engine.runAndWait()
+            messagebox.showinfo("Aceptada","¡Su Palabra ha sido aceptada!")
             print("aceptado")

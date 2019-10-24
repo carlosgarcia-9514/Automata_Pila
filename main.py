@@ -32,6 +32,11 @@ def borrar():
     flecha_esfera22 = lienzo.create_image(435, 140, anchor=NE, image=flecha3)
     imagen_esfera3 = lienzo.create_image(500, 100, anchor=NE, image=esfera2)
 
+def salirapp():
+	valor=messagebox.askquestion("Salir","¡quiere salir de la app?")
+
+	if(valor=="yes"):
+		ventana.destroy()
 ventana = Tk()
 ventana.title("Automata")
 ventana.geometry("700x650")
@@ -48,6 +53,9 @@ boton.grid(column=4, row=2)
 
 boton = Button(ventana, text="reiniciar", command=borrar)
 boton.grid(column=6, row=2)
+
+boton = Button(ventana, text="salir", width=8, command=salirapp)
+boton.grid(column=8, row=2)
 
 lienzo = Canvas(ventana, width=650, height=400, bg="white")
 lienzo.grid(column=2, row=30, columnspan=17)
